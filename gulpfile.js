@@ -93,6 +93,7 @@ gulp.task("build", ['clean'], function(){
 gulp.task('jsBuild', ['jsBrowserify'], function() {
   browserSync.reload();
   gulp.start('gitStatus');
+  del('tmp');
 });
 
 gulp.task('jsConditionalBuild', ['lint'], function() {

@@ -1,1 +1,1 @@
-place google maps api functions in own files
+removes tmp folder after building js
