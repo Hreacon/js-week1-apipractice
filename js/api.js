@@ -11,10 +11,7 @@ exports.getWeather = function(latLng) {
     $('#weather').text('Currently, the weather is ' + response.weather[0].description);
     // console.log(JSON.stringify(response));
     $('#temperature').text('The temperature is ranging from ' + Math.floor(response.main.temp_min * 9/5 - 459.67) + ' to ' + Math.floor(response.main.temp_max * 9/5 - 459.67) + " degrees fahrenheit");
-    var getDinos = $.get('http://dinoipsum.herokuapp.com/api/?format=text&words=1&paragraphs=1').done(function(response) {
-      console.log(response);
-      $('#city_name').append(" and watch out for " + response);
-    });
+    dino.warning();
   });
 
 };
