@@ -1,1 +1,1 @@
-add display
+tried to get server not to crash on bad js, failed
