@@ -14,11 +14,14 @@ input {
 input[type=submit] {
   width:100%;
 }
-html, body {
-       height: 100%;
-       margin: 0;
-       padding: 0;
-     }
-     #map {
-       height: 80%;
-     }
+#map {
+ height: 600px;
+}
+.column {
+  width:49%;
+  display: inline-block;
+  text-align: center;
+}
+button {
+  width:100%;
+}

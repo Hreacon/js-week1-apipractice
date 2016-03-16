@@ -12,6 +12,7 @@ var lib = require('bower-files')({
 var gulp = require('gulp');
 var browserify = require('browserify');
 var source =require('vinyl-source-stream');
+var exec = require('child_process').exec;
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var utilities = require('gulp-util');
@@ -112,6 +113,13 @@ gulp.task('bowerBuild', ['bower'], function() {
 gulp.task('htmlBuild', function() {
   browserSync.reload();
   gulp.start('gitStatus');
+});
+
+gulp.task('autoServe', function() {
+  exec('./serve.sh', function(err, stdout, stderr) {
+    utilities.log(stdout, stderr);
+  });
+
 });
 
 gulp.task('serve', function() {

@@ -1,1 +1,1 @@
-add show of weather on map click
+add more verbose weather reporting after click

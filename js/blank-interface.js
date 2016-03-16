@@ -55,5 +55,5 @@ function geolocationSuccess(position) {
 }
 
 function geolocationError(positionError) {
-  alert(positionError);
+  console.log(positionError);
 }

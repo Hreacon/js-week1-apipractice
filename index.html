@@ -10,10 +10,17 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo9KbUebwumJZAgeAgLnkDWEL-Tz3rWkk"
     async defer></script>
   </head>
-  <body class="container">
-    <div id="weather"></div>
-    <div id="temperature"></div>
-    <button id="locateUser">Get Location</button>
-    <div id="map"></div>
+  <body>
+    <div class="column">
+      <button id="locateUser">Get Location</button>
+      <div id="map"></div>
+    </div>
+    <div class="column">
+      <div id="city_name"></div>
+      <div id="humidity"></div>
+      <div id="weather"></div>
+      <div id="temperature"></div>
+    </div>
+
   </body>
 </html>
