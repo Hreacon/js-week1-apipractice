@@ -1,1 +1,1 @@
-removes tmp folder after building js
+add warning about posiible dinosaurs in area
