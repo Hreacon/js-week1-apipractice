@@ -1,1 +1,1 @@
-add more verbose weather reporting after click
+place google maps api functions in own files
