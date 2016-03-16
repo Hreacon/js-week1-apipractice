@@ -23,9 +23,25 @@ var sourcemaps = require('gulp-sourcemaps');
 var git = require('gulp-git');
 var gitignore = require('gulp-gitignore');
 var fs = require('fs');
+var wait = require('gulp-wait');
 var buildProduction = utilities.env.production;
+var map = require('map-stream');
+buildable = true;
 
-gulp.task('concatInterface', function() {
+gulp.task('lint', function() {
+  var isBuildable = map(function (file, cb) {
+    if (!file.jshint.success) {
+      console.error('jshint failed');
+      buildable = false;
+    }
+  });
+  gulp.src('js/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(isBuildable);
+});
+
+gulp.task('concatInterface', ['lint'], function() {
   return gulp.src(['./js/*-interface.js'])
   .pipe(concat('allConcat.js'))
   .pipe(gulp.dest('./tmp'));
@@ -73,9 +89,19 @@ gulp.task("build", ['clean'], function(){
   gulp.start('cssBuild')
 });
 
-gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function() {
+gulp.task('jsBuild', ['jsBrowserify'], function() {
   browserSync.reload();
   gulp.start('gitStatus');
+});
+
+gulp.task('jsConditionalBuild', ['lint'], function() {
+  wait(200);
+  console.log(buildable);
+  if(buildable) {
+    gulp.start('jsBuild');
+  } else {
+    buildable = true;
+  }
 });
 
 gulp.task('bowerBuild', ['bower'], function() {
