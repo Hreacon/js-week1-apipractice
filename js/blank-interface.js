@@ -1,3 +1,5 @@
+var api = require('./../js/api.js');
+
 $( document ).ready(function() {
   $('#locateUser').click(locateUser);
 });
@@ -40,9 +42,11 @@ function geolocationSuccess(position) {
   };
   // Draw the map - you have to use 'getElementById' here.
   var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
+
   mapObject.addListener('click', function(mouseEvent) {
+    api.getWeather(mouseEvent.latLng);
     mapObject.setCenter(mouseEvent.latLng);
-  })
+  });
   // Place the marker
   // new google.maps.Marker({
   //   map: mapObject,
