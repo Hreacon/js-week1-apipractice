@@ -1,1 +1,1 @@
-humidity also gets a dino
+better handling of api keys

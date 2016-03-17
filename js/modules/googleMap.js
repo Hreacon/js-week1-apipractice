@@ -3,7 +3,7 @@ var api = require('./../api.js');
 //google maps functions
 exports.locateUser = function () {
   // If the browser supports the Geolocation API
-  if (navigator.geolocation){
+  if (navigator.geolocation){  
     var positionOptions = {
       enableHighAccuracy: true,
       timeout: 10 * 1000 // 10 seconds
@@ -13,7 +13,7 @@ exports.locateUser = function () {
   else {
     alert("Your browser doesn't support the Geolocation API");
   }
-}
+};
 
 
 
@@ -48,8 +48,8 @@ exports.geolocationSuccess = function (position) {
   //   map: mapObject,
   //   position: userLatLng
   // });
-}
+};
 
 exports.geolocationError = function(positionError) {
   console.log(positionError);
-}
+};

@@ -12,7 +12,7 @@ exports.getWeather = function(latLng) {
     // console.log(JSON.stringify(response));
     $('#temperature').text('The temperature is ranging from ' + Math.floor(response.main.temp_min * 9/5 - 459.67) + ' to ' + Math.floor(response.main.temp_max * 9/5 - 459.67) + " degrees fahrenheit");
     dino.warning();
-    dino.idealConditions();
+    dino.idealConditions(); 
   });
 
 };
